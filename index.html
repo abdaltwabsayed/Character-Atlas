@@ -1,26 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="This is a simple web application that allows users to fetch information about Pokemon characters using the PokeAPI. Users can enter the name of a Pokemon and retrieve its details, including its sprite image.">
-    <meta property="og:title" content="Pokemon" />
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://static.vecteezy.com/system/resources/previews/000/118/593/original/pokemon-icon-vector-free.jpg" />
-    <meta property="og:url" content="https://www.freecodecamp.org" />
-    <link href="./styles/pokemon.css" rel="stylesheet">
-    <title>Pokemon</title>
-</head>
-<body>
-    <h1>Pokemon Characters</h1>
-    <form onsubmit="event.preventDefault(); fetchData();">
-        <label for="pokemonName">Pokemon Name</label>
-        <input type="text" id="pokemonName" placeholder="Enter Pokemon name" autofocus autocomplete="on" required>
-        <button onclick="fetchData()">Fetch Pokemon</button><br>
-    </form>
-    <p id="pokemonInfo"><span>If you don't know the name, try one of these:</span> [Pikachu, Bulbasaur, Charmander, Squirtle, Charizard, Eevee, Mewtwo, Gengar, Snorlax, Dragonite, Chikorita, Cyndaquil, Totodile, Togepi, Ampharos, Scizor, Tyranitar, Lugia, Ho-Oh, Celebi, Treecko, Torchic, Mudkip, Gardevoir, Aggron, Salamence, Metagross, Kyogre, Groudon, Rayquaza, Lucario, Garchomp, Arceus, Zoroark, Greninja, Mimikyu, Dragapult, Tinkaton]</p>
-    <img src="" alt="Pokemon Sprite" id="pokemonSprite">
-
-    <script src="./scripts/pokemon.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A fan-made learning project exploring Pokémon, SpongeBob and My Little Pony characters."
+    />
+    <meta name="theme-color" content="#f5f2eb" />
+    <title>Character Atlas | Fan & Learning Project</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

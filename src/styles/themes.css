@@ -1,0 +1,27 @@
+[data-theme="home"] {
+  --bg: #f5f2eb;
+  --accent: #354e57;
+  --accent-strong: #243d46;
+  --section-bg: linear-gradient(135deg, #f8f4eb, #edf2ee);
+}
+
+[data-theme="pokemon"] {
+  --bg: #fff2d6;
+  --accent: #d65b47;
+  --accent-strong: #ad382c;
+  --section-bg: radial-gradient(ellipse at 86% 12%, rgba(255, 207, 97, 0.34), transparent 34%), linear-gradient(125deg, #fff4dc, #f8e7d2);
+}
+
+[data-theme="spongebob"] {
+  --bg: #dff3ef;
+  --accent: #118b95;
+  --accent-strong: #08666f;
+  --section-bg: radial-gradient(ellipse at 15% 30%, rgba(81, 200, 190, 0.24), transparent 30%), linear-gradient(130deg, #e1f6ef, #d9eefa);
+}
+
+[data-theme="pony"] {
+  --bg: #f3e7f8;
+  --accent: #8b5aa3;
+  --accent-strong: #68417d;
+  --section-bg: radial-gradient(ellipse at 88% 22%, rgba(228, 172, 221, 0.28), transparent 32%), linear-gradient(130deg, #f7eefa, #e8eafa);
+}
