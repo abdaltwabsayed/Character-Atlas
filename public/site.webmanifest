@@ -1,0 +1,19 @@
+{
+  "name": "Character Atlas",
+  "short_name": "Character Atlas",
+  "description": "An independent fan-made character explorer.",
+  "lang": "en",
+  "start_url": "/Pokemon-Fetcher/#/",
+  "scope": "/Pokemon-Fetcher/",
+  "display": "standalone",
+  "background_color": "#f5f2eb",
+  "theme_color": "#304f57",
+  "icons": [
+    {
+      "src": "/Pokemon-Fetcher/brand/atlas-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

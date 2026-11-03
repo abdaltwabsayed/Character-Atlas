@@ -101,6 +101,48 @@ a {
   letter-spacing: -0.04em;
 }
 
+.brand-logo {
+  display: block;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  border-radius: 13px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.language-toggle {
+  display: inline-flex;
+  min-height: 39px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 13px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  color: #43565a;
+  background: rgba(255, 254, 250, 0.88);
+  font-size: 12px;
+  font-weight: 750;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.language-toggle:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  color: var(--accent-strong);
+  background: color-mix(in srgb, var(--accent) 9%, white);
+}
+
+.language-globe {
+  color: var(--accent);
+  font-size: 18px;
+  line-height: 1;
+}
+
 .primary-navigation {
   display: flex;
   align-items: center;
@@ -739,6 +781,78 @@ a {
   text-underline-offset: 3px;
 }
 
+[dir="rtl"] body {
+  font-family: Tahoma, Arial, ui-sans-serif, system-ui, sans-serif;
+}
+
+[dir="rtl"] .brand {
+  letter-spacing: 0;
+}
+
+[dir="rtl"] .primary-navigation a {
+  letter-spacing: 0;
+}
+
+[dir="rtl"] .hero-content h1 {
+  letter-spacing: 0;
+}
+
+[dir="rtl"] .hero-content > p:not(.eyebrow) {
+  line-height: 1.95;
+}
+
+[dir="rtl"] .section-heading h2,
+[dir="rtl"] .explorer-intro h1 {
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+[dir="rtl"] .section-description,
+[dir="rtl"] .explorer-intro > p:last-child {
+  line-height: 1.9;
+}
+
+[dir="rtl"] .carousel-controls {
+  direction: rtl;
+}
+
+[dir="rtl"] .arrow-controls button span {
+  display: inline-block;
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] .character-details {
+  text-align: right;
+}
+
+[dir="rtl"] .source-link {
+  direction: rtl;
+}
+
+[dir="rtl"] .tag-list {
+  direction: rtl;
+}
+
+[dir="rtl"] .search-bar label {
+  text-align: right;
+}
+
+[dir="rtl"] .search-bar input {
+  text-align: right;
+}
+
+[dir="rtl"] .result-count {
+  text-align: left;
+}
+
+[dir="rtl"] .footer-inner p {
+  line-height: 2;
+}
+
+[dir="rtl"] .footer-links {
+  line-height: 1.8;
+}
+
 @media (max-width: 900px) {
   .primary-navigation a {
     padding-inline: 8px;
@@ -773,6 +887,10 @@ a {
     display: flex;
   }
 
+  .language-toggle {
+    min-height: 38px;
+  }
+
   .primary-navigation {
     position: absolute;
     top: calc(100% + 1px);
@@ -790,6 +908,11 @@ a {
 
   .primary-navigation.is-open {
     display: flex;
+  }
+
+  [dir="rtl"] .primary-navigation {
+    right: 0;
+    left: 0;
   }
 
   .primary-navigation a {
@@ -816,15 +939,32 @@ a {
     width: 250px;
   }
 
+  [dir="rtl"] .hero-orbit-one {
+    top: 195px;
+    left: -125px;
+    width: 250px;
+  }
+
   .hero-orbit-two {
     top: 235px;
     right: -60px;
     width: 130px;
   }
 
+  [dir="rtl"] .hero-orbit-two {
+    top: 235px;
+    left: -60px;
+    width: 130px;
+  }
+
   .hero-spark-one {
     top: 26%;
     right: 12%;
+  }
+
+  [dir="rtl"] .hero-spark-one {
+    top: 26%;
+    left: 12%;
   }
 
   .franchise-section {

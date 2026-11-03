@@ -5,8 +5,14 @@ import useFetch from '../hooks/useFetch.js';
 import CardSkeleton from '../components/cards/CardSkeleton.jsx';
 import Carousel from '../components/carousel/Carousel.jsx';
 import StatusMessage from '../components/ui/StatusMessage.jsx';
+import { useLanguage } from '../context/LanguageContext.jsx';
+import {
+  getFranchiseDescription,
+  getFranchiseName,
+} from '../i18n/translations.js';
 
 function FranchiseSection({ franchise }) {
+  const { language, t } = useLanguage();
   const loadPreview = useCallback(
     (signal) => franchise.api.getList({ limit: 9, page: 0, signal }),
     [franchise],
@@ -18,12 +24,12 @@ function FranchiseSection({ franchise }) {
       <div className="section-inner">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">Explore a world</p>
-            <h2>{franchise.name}</h2>
-            <p className="section-description">{franchise.description}</p>
+            <p className="eyebrow">{t('exploreEyebrow')}</p>
+            <h2>{getFranchiseName(franchise, language)}</h2>
+            <p className="section-description">{getFranchiseDescription(franchise, language)}</p>
           </div>
           <Link className="button button-outline browse-link" to={franchise.route}>
-            Browse all <span aria-hidden="true">↗</span>
+            {t('browseAll')} <span aria-hidden="true">↗</span>
           </Link>
         </div>
 
@@ -34,10 +40,14 @@ function FranchiseSection({ franchise }) {
         )}
         {status === 'error' && <StatusMessage status={status} error={error} onRetry={retry} />}
         {status === 'not-found' && (
-          <StatusMessage status={status} emptyMessage="No characters are available right now." />
+          <StatusMessage status={status} emptyMessage={t('noCharacters')} />
         )}
         {status === 'success' && data?.items?.length > 0 && (
-          <Carousel items={data.items} label={franchise.name} />
+          <Carousel
+            items={data.items}
+            label={getFranchiseName(franchise, language)}
+            franchiseId={franchise.id}
+          />
         )}
       </div>
     </section>
@@ -45,18 +55,17 @@ function FranchiseSection({ franchise }) {
 }
 
 export default function Home() {
+  const { t } = useLanguage();
+
   return (
     <div className="home-page">
       <section className="hero-strip">
         <div className="hero-content">
-          <p className="eyebrow">Three worlds, one atlas</p>
-          <h1>Characters worth<br /><span>getting to know.</span></h1>
-          <p>
-            A small fan-made explorer for memorable characters from Pokémon,
-            SpongeBob SquarePants, and My Little Pony.
-          </p>
+          <p className="eyebrow">{t('heroEyebrow')}</p>
+          <h1>{t('heroTitle')}<br /><span>{t('heroTitleAccent')}</span></h1>
+          <p>{t('heroDescription')}</p>
           <a className="button hero-button" href="#franchises">
-            Explore the worlds <span aria-hidden="true">↓</span>
+            {t('exploreWorlds')} <span aria-hidden="true">↓</span>
           </a>
         </div>
         <div className="hero-orbit hero-orbit-one" aria-hidden="true" />

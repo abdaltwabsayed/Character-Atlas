@@ -1,4 +1,8 @@
+import { useLanguage } from '../../context/LanguageContext.jsx';
+
 export default function SearchBar({ value, onChange, onSearch, label }) {
+  const { t } = useLanguage();
+
   return (
     <form className="search-bar" role="search" onSubmit={onSearch}>
       <label htmlFor="character-search">{label}</label>
@@ -6,12 +10,13 @@ export default function SearchBar({ value, onChange, onSearch, label }) {
         <input
           id="character-search"
           type="search"
+          dir="auto"
           value={value}
           onChange={(event) => onChange(event.target.value)}
-          placeholder="Try a character name"
+          placeholder={t('searchPlaceholder')}
         />
         <button type="submit" disabled={!value.trim()}>
-          Search
+          {t('searchButton')}
         </button>
       </div>
     </form>

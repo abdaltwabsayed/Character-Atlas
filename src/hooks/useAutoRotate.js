@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-export default function useAutoRotate(itemCount, paused, delay = 4500) {
+export default function useAutoRotate(itemCount, paused, delay = 3000) {
   const [index, setIndex] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
 

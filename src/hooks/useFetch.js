@@ -1,16 +1,16 @@
 import { useCallback, useEffect, useState } from 'react';
 
-export function getErrorMessage(error) {
+export function getErrorMessage(error, translate = (key) => key) {
   if (error?.code === 'ECONNABORTED') {
-    return 'The request took too long. Please try again.';
+    return translate('requestTimeout');
   }
   if (error?.response?.status >= 500) {
-    return 'The character service is temporarily unavailable. Please try again.';
+    return translate('serviceUnavailable');
   }
   if (error instanceof Error && error.message) {
     return error.message;
   }
-  return 'Something went wrong while loading characters.';
+  return translate('genericError');
 }
 
 export default function useFetch(apiCall, dependencies = []) {

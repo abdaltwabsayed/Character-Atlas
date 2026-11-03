@@ -5,6 +5,14 @@ import CardSkeleton from './cards/CardSkeleton.jsx';
 import SearchBar from './ui/SearchBar.jsx';
 import StatusMessage from './ui/StatusMessage.jsx';
 import useFetch from '../hooks/useFetch.js';
+import { useLanguage } from '../context/LanguageContext.jsx';
+import {
+  getCharacterName,
+  getFranchiseDescription,
+  getFranchiseName,
+  matchesCharacterSearch,
+  resolveCharacterSearch,
+} from '../i18n/translations.js';
 
 const PAGE_SIZE = 12;
 
@@ -16,6 +24,7 @@ export default function ExplorerPage({ franchise }) {
   const [loadingMore, setLoadingMore] = useState(false);
   const [loadMoreError, setLoadMoreError] = useState(null);
   const loadMoreController = useRef(null);
+  const { language, t } = useLanguage();
 
   const loadFirstPage = useCallback(
     (signal) => franchise.api.getList({ limit: PAGE_SIZE, page: 0, signal }),
@@ -31,7 +40,7 @@ export default function ExplorerPage({ franchise }) {
   const searchApiCall = useCallback(
     (signal) => (
       submittedQuery
-        ? franchise.api.getByName(submittedQuery, { signal })
+        ? franchise.api.getByName(resolveCharacterSearch(franchise.id, submittedQuery), { signal })
         : Promise.resolve(null)
     ),
     [franchise, submittedQuery],
@@ -70,9 +79,16 @@ export default function ExplorerPage({ franchise }) {
   const filteredItems = useMemo(() => {
     const normalizedQuery = searchText.trim().toLowerCase();
     return [...items]
-      .filter((character) => character.name.toLowerCase().includes(normalizedQuery))
+      .filter((character) => matchesCharacterSearch(
+        franchise.id,
+        character,
+        normalizedQuery,
+        language,
+      ))
       .sort((first, second) => first.name.localeCompare(second.name));
-  }, [items, searchText]);
+  }, [franchise.id, items, language, searchText]);
+
+  const localizedFranchiseName = getFranchiseName(franchise, language);
 
   async function handleLoadMore() {
     if (nextPage === null || loadingMore) return;
@@ -111,37 +127,37 @@ export default function ExplorerPage({ franchise }) {
   return (
     <div className="explorer-page" data-theme={franchise.theme}>
       <section className="explorer-intro">
-        <Link className="back-link" to="/">← Back to all worlds</Link>
-        <p className="eyebrow">Character explorer</p>
-        <h1>{franchise.name}</h1>
-        <p>{franchise.description}</p>
+        <Link className="back-link" to="/"><span aria-hidden="true">→</span> {t('explorerBack')}</Link>
+        <p className="eyebrow">{t('explorerEyebrow')}</p>
+        <h1>{localizedFranchiseName}</h1>
+        <p>{getFranchiseDescription(franchise, language)}</p>
       </section>
 
-      <section className="explorer-content" aria-label={`${franchise.name} characters`}>
+      <section className="explorer-content" aria-label={`${localizedFranchiseName} ${t('characters')}`}>
         <SearchBar
           value={searchText}
           onChange={setSearchText}
           onSearch={handleSearch}
-          label={`Search ${franchise.name}`}
+          label={t('searchLabel', { name: localizedFranchiseName })}
         />
 
         {submittedQuery && (
           <section className="exact-search-result" aria-live="polite">
             <div className="section-heading compact-heading">
-              <h2>Search result</h2>
+              <h2>{t('searchResult')}</h2>
               <button className="text-button" type="button" onClick={() => setSubmittedQuery('')}>
-                Clear
+                {t('clear')}
               </button>
             </div>
             <StatusMessage
               status={searchStatus}
               error={searchError}
               onRetry={retrySearch}
-              emptyMessage={`No exact match found for "${submittedQuery}".`}
+              emptyMessage={t('noExactMatch', { name: submittedQuery })}
             />
             {searchStatus === 'success' && searchResult && (
               <div className="featured-result">
-                <CharacterCard character={searchResult} />
+                <CharacterCard character={searchResult} franchiseId={franchise.id} />
               </div>
             )}
           </section>
@@ -149,10 +165,10 @@ export default function ExplorerPage({ franchise }) {
 
         <div className="section-heading explorer-list-heading">
           <div>
-            <p className="eyebrow">Browse</p>
-            <h2>Characters</h2>
+            <p className="eyebrow">{t('browse')}</p>
+            <h2>{t('characters')}</h2>
           </div>
-          <span className="result-count">{filteredItems.length} shown</span>
+          <span className="result-count" dir="auto">{t('shown', { count: filteredItems.length })}</span>
         </div>
 
         {listStatus === 'loading' && (
@@ -166,19 +182,23 @@ export default function ExplorerPage({ franchise }) {
         {listStatus === 'not-found' && (
           <StatusMessage
             status="not-found"
-            emptyMessage={`No ${franchise.name} characters are available right now.`}
+            emptyMessage={t('noCharactersForFranchise', { name: localizedFranchiseName })}
           />
         )}
         {listStatus === 'success' && filteredItems.length === 0 && (
           <StatusMessage
             status="not-found"
-            emptyMessage={searchText ? 'No loaded characters match that search.' : 'No characters found.'}
+            emptyMessage={searchText ? t('noLoadedMatches') : t('noCharactersFound')}
           />
         )}
         {listStatus === 'success' && filteredItems.length > 0 && (
           <div className="character-grid">
             {filteredItems.map((character) => (
-              <CharacterCard key={character.id} character={character} />
+              <CharacterCard
+                key={character.id}
+                character={character}
+                franchiseId={franchise.id}
+              />
             ))}
           </div>
         )}
@@ -197,7 +217,7 @@ export default function ExplorerPage({ franchise }) {
             onClick={handleLoadMore}
             disabled={loadingMore}
           >
-            {loadingMore ? 'Loading…' : 'Load more'}
+            {loadingMore ? t('loadingMore') : t('loadMore')}
           </button>
         )}
       </section>

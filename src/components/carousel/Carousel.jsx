@@ -1,11 +1,14 @@
 import { useEffect, useMemo, useState } from 'react';
 import useAutoRotate from '../../hooks/useAutoRotate.js';
+import { useLanguage } from '../../context/LanguageContext.jsx';
+import { getCharacterName, translate } from '../../i18n/translations.js';
 import CharacterCard from '../cards/CharacterCard.jsx';
 
-export default function Carousel({ items, label }) {
+export default function Carousel({ items, label, franchiseId }) {
   const [paused, setPaused] = useState(false);
   const [visibleCount, setVisibleCount] = useState(3);
   const { index, goTo, reducedMotion } = useAutoRotate(items.length, paused);
+  const { language, t } = useLanguage();
 
   useEffect(() => {
     const updateVisibleCount = () => {
@@ -37,15 +40,15 @@ export default function Carousel({ items, label }) {
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={handleBlur}
-      aria-label={`${label} character carousel`}
+      aria-label={`${label} ${t('characters')}`}
     >
       <div className="carousel-controls">
-        <p>{reducedMotion ? 'Auto-rotation off for reduced motion' : 'A few favorites, on a loop'}</p>
+        <p>{reducedMotion ? t('reducedMotion') : t('carouselHint')}</p>
         <div className="arrow-controls">
-          <button type="button" aria-label="Previous characters" onClick={() => goTo(index - 1)}>
+          <button type="button" aria-label={t('previousCharacters')} onClick={() => goTo(index - 1)}>
             <span aria-hidden="true">←</span>
           </button>
-          <button type="button" aria-label="Next characters" onClick={() => goTo(index + 1)}>
+          <button type="button" aria-label={t('nextCharacters')} onClick={() => goTo(index + 1)}>
             <span aria-hidden="true">→</span>
           </button>
         </div>
@@ -53,17 +56,23 @@ export default function Carousel({ items, label }) {
       <div className="carousel-window" aria-live="polite">
         <div className="carousel-cards">
           {visibleItems.map((character) => (
-            <CharacterCard key={character.id} character={character} />
+            <CharacterCard
+              key={character.id}
+              character={character}
+              franchiseId={franchiseId}
+            />
           ))}
         </div>
       </div>
-      <div className="carousel-dots" aria-label="Choose a character set">
+      <div className="carousel-dots" aria-label={t('chooseCharacterSet')}>
         {items.map((character, dotIndex) => (
           <button
             key={character.id}
             type="button"
             className={dotIndex === index ? 'is-active' : ''}
-            aria-label={`Show characters starting with ${character.name}`}
+            aria-label={translate(language, 'showCharactersStarting', {
+              name: getCharacterName(franchiseId, character.name, language),
+            })}
             aria-current={dotIndex === index ? 'true' : undefined}
             onClick={() => goTo(dotIndex)}
           />

@@ -57,7 +57,9 @@ export async function getByName(name, { signal } = {}) {
   const { data } = await spongebobClient.get('', {
     params: {
       action: 'query',
-      titles: name.trim(),
+      generator: 'search',
+      gsrsearch: name.trim(),
+      gsrlimit: 10,
       prop: 'pageimages|info',
       inprop: 'url',
       piprop: 'thumbnail',
@@ -68,8 +70,14 @@ export async function getByName(name, { signal } = {}) {
     signal,
   });
 
-  const [page] = getPages({ data });
-  if (!page || page.missing !== undefined) {
+  const pages = getPages({ data }).sort((first, second) => first.index - second.index);
+  const normalizedName = name.trim().replace(/_/g, ' ').toLowerCase();
+  const page = pages.find((candidate) => (
+    candidate.title.trim().replace(/_/g, ' ').toLowerCase() === normalizedName
+  )) ?? pages.find((candidate) => (
+    candidate.title.trim().replace(/_/g, ' ').toLowerCase().startsWith(normalizedName)
+  )) ?? pages.find(isCharacterPage);
+  if (!page) {
     const error = new Error(`No SpongeBob Wiki page was found for "${name}".`);
     error.code = 'NOT_FOUND';
     throw error;
