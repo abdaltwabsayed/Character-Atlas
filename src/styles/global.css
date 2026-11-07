@@ -192,7 +192,7 @@ a {
   align-items: center;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 83% 30%, rgba(255, 215, 136, 0.55), transparent 25%),
+    radial-gradient(ellipse at 17% 30%, rgba(255, 215, 136, 0.55), transparent 25%),
     radial-gradient(ellipse at 75% 100%, rgba(173, 209, 195, 0.6), transparent 40%),
     linear-gradient(120deg, #fcf8ef, #eff4ef 65%, #e1eeec);
 }
