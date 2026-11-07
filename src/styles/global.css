@@ -186,15 +186,20 @@ a {
 }
 
 .hero-strip {
+  --hero-glow-x: 17%;
   position: relative;
   display: flex;
   min-height: 475px;
   align-items: center;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 17% 30%, rgba(255, 215, 136, 0.55), transparent 25%),
+    radial-gradient(ellipse at var(--hero-glow-x) 30%, rgba(255, 215, 136, 0.55), transparent 25%),
     radial-gradient(ellipse at 75% 100%, rgba(173, 209, 195, 0.6), transparent 40%),
     linear-gradient(120deg, #fcf8ef, #eff4ef 65%, #e1eeec);
+}
+
+[dir="rtl"] .hero-strip {
+  --hero-glow-x: 83%;
 }
 
 .hero-content {
@@ -273,7 +278,7 @@ a {
 
 .hero-orbit {
   position: absolute;
-  right: 12%;
+  inset-inline-end: 12%;
   width: 270px;
   aspect-ratio: 1;
   border: 1px solid rgba(63, 107, 111, 0.14);
@@ -286,7 +291,7 @@ a {
 
 .hero-orbit-two {
   top: 105px;
-  right: 15%;
+  inset-inline-end: 15%;
   width: 150px;
   background: rgba(255, 254, 250, 0.28);
 }
@@ -298,12 +303,12 @@ a {
 
 .hero-spark-one {
   top: 24%;
-  right: 31%;
+  inset-inline-end: 31%;
   font-size: 34px;
 }
 
 .hero-spark-two {
-  right: 10%;
+  inset-inline-end: 10%;
   bottom: 23%;
   color: #829e95;
   font-size: 29px;
@@ -864,7 +869,7 @@ a {
   }
 
   .hero-orbit {
-    right: -2%;
+    inset-inline-end: -2%;
     opacity: 0.7;
   }
 }
@@ -935,36 +940,19 @@ a {
 
   .hero-orbit-one {
     top: 195px;
-    right: -125px;
-    width: 250px;
-  }
-
-  [dir="rtl"] .hero-orbit-one {
-    top: 195px;
-    left: -125px;
+    inset-inline-end: -125px;
     width: 250px;
   }
 
   .hero-orbit-two {
     top: 235px;
-    right: -60px;
-    width: 130px;
-  }
-
-  [dir="rtl"] .hero-orbit-two {
-    top: 235px;
-    left: -60px;
+    inset-inline-end: -60px;
     width: 130px;
   }
 
   .hero-spark-one {
     top: 26%;
-    right: 12%;
-  }
-
-  [dir="rtl"] .hero-spark-one {
-    top: 26%;
-    left: 12%;
+    inset-inline-end: 12%;
   }
 
   .franchise-section {
