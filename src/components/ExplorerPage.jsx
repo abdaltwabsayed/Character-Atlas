@@ -7,9 +7,6 @@ import StatusMessage from './ui/StatusMessage.jsx';
 import useFetch from '../hooks/useFetch.js';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import {
-  getCharacterName,
-  getFranchiseDescription,
-  getFranchiseName,
   matchesCharacterSearch,
   resolveCharacterSearch,
 } from '../i18n/translations.js';
@@ -88,7 +85,7 @@ export default function ExplorerPage({ franchise }) {
       .sort((first, second) => first.name.localeCompare(second.name));
   }, [franchise.id, items, language, searchText]);
 
-  const localizedFranchiseName = getFranchiseName(franchise, language);
+  const localizedFranchiseName = t(franchise.nameKey);
 
   async function handleLoadMore() {
     if (nextPage === null || loadingMore) return;
@@ -130,7 +127,7 @@ export default function ExplorerPage({ franchise }) {
         <Link className="back-link" to="/"><span aria-hidden="true">→</span> {t('explorerBack')}</Link>
         <p className="eyebrow">{t('explorerEyebrow')}</p>
         <h1>{localizedFranchiseName}</h1>
-        <p>{getFranchiseDescription(franchise, language)}</p>
+        <p>{t(franchise.descriptionKey)}</p>
       </section>
 
       <section className="explorer-content" aria-label={`${localizedFranchiseName} ${t('characters')}`}>

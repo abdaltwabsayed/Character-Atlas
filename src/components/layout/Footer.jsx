@@ -14,7 +14,7 @@ export default function Footer() {
           <span>{t('dataLabel')} <a href="https://pokeapi.co/" target="_blank" rel="noreferrer">PokéAPI</a></span>
           <span>{t('dataLabel')} <a href="https://spongebob.fandom.com/" target="_blank" rel="noreferrer">SpongeBob Wiki</a></span>
           <span>{t('dataLabel')} <a href="https://ponyapi.net/" target="_blank" rel="noreferrer">PonyAPI</a></span>
-          <a href="https://github.com/abdaltwabsayed/Pokemon-Fetcher" target="_blank" rel="noreferrer">
+          <a href="https://github.com/abdaltwabsayed/Character-Atlas" target="_blank" rel="noreferrer">
             {t('viewSource')}
           </a>
         </div>

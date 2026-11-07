@@ -1,123 +1,124 @@
+// API names stay in English; these values are for Arabic display and search.
 export const characterNames = {
   pokemon: {
-    bulbasaur: { ar: 'بولباسور' },
-    ivysaur: { ar: 'إيفيسور' },
-    venusaur: { ar: 'فينوسور' },
-    charmander: { ar: 'تشارمندر' },
-    charmeleon: { ar: 'تشارميليون' },
-    charizard: { ar: 'تشارزارد' },
-    squirtle: { ar: 'سكويرتل' },
-    wartortle: { ar: 'وارتورتل' },
-    blastoise: { ar: 'بلاستويز' },
-    caterpie: { ar: 'كاتربي' },
-    pikachu: { ar: 'بيكاتشو' },
-    raichu: { ar: 'رايتشو' },
-    jigglypuff: { ar: 'جيجليباف' },
-    meowth: { ar: 'مياوث' },
-    psyduck: { ar: 'سايداك' },
-    growlithe: { ar: 'جروولايث' },
-    arcanine: { ar: 'أركانين' },
-    machop: { ar: 'ماتشوب' },
-    geodude: { ar: 'جيودود' },
-    ponyta: { ar: 'بونيتا' },
-    slowpoke: { ar: 'سلوپوك' },
-    magnemite: { ar: 'ماجنايميت' },
-    gastly: { ar: 'جاستلي' },
-    gengar: { ar: 'جينجار' },
-    onix: { ar: 'أونيكس' },
-    rhyhorn: { ar: 'رايهورن' },
-    chansey: { ar: 'شانسي' },
-    scyther: { ar: 'سايثر' },
-    magikarp: { ar: 'ماجيكارب' },
-    gyarados: { ar: 'جيارادوس' },
-    lapras: { ar: 'لابراس' },
-    ditto: { ar: 'ديتو' },
-    eevee: { ar: 'إيفي' },
-    vaporeon: { ar: 'فابوريون' },
-    jolteon: { ar: 'جولتيون' },
-    flareon: { ar: 'فلاريون' },
-    snorlax: { ar: 'سنورلاكس' },
-    dratini: { ar: 'دراتيني' },
-    dragonite: { ar: 'دراجونايت' },
-    mewtwo: { ar: 'ميوتو' },
-    mew: { ar: 'ميو' },
-    chikorita: { ar: 'تشيكوريتا' },
-    cyndaquil: { ar: 'سينداكويل' },
-    totodile: { ar: 'توتودايل' },
-    togepi: { ar: 'توجيبي' },
-    espeon: { ar: 'إسبون' },
-    umbreon: { ar: 'أمبريون' },
-    lugia: { ar: 'لوجيا' },
-    celebi: { ar: 'سيليبي' },
-    treecko: { ar: 'تريكو' },
-    torchic: { ar: 'تورتشيك' },
-    mudkip: { ar: 'مادكيب' },
-    gardevoir: { ar: 'جارديفوار' },
-    absol: { ar: 'أبسول' },
-    salamence: { ar: 'سالامنس' },
-    metagross: { ar: 'ميتاجروس' },
-    rayquaza: { ar: 'ريكوازا' },
-    lucario: { ar: 'لوكاريو' },
-    garchomp: { ar: 'جارتشومب' },
-    riolu: { ar: 'ريولو' },
-    zorua: { ar: 'زوروا' },
-    zoroark: { ar: 'زوروارك' },
-    greninja: { ar: 'جرينينجا' },
-    sylveon: { ar: 'سلفيون' },
-    rowlet: { ar: 'روليت' },
-    litten: { ar: 'ليتن' },
-    popplio: { ar: 'بوبليو' },
-    mimikyu: { ar: 'ميميكيو' },
-    sobble: { ar: 'سوبل' },
-    scorbunny: { ar: 'سكورباني' },
-    dragapult: { ar: 'دراجابولت' },
-    sprigatito: { ar: 'سبرجاتيتو' },
-    fuecoco: { ar: 'فويكوكو' },
-    pawmi: { ar: 'باومي' },
-    tinkaton: { ar: 'تينكاتون' },
+    bulbasaur: 'بولباسور',
+    ivysaur: 'إيفيسور',
+    venusaur: 'فينوسور',
+    charmander: 'تشارمندر',
+    charmeleon: 'تشارميليون',
+    charizard: 'تشارزارد',
+    squirtle: 'سكويرتل',
+    wartortle: 'وارتورتل',
+    blastoise: 'بلاستويز',
+    caterpie: 'كاتربي',
+    pikachu: 'بيكاتشو',
+    raichu: 'رايتشو',
+    jigglypuff: 'جيجليباف',
+    meowth: 'مياوث',
+    psyduck: 'سايداك',
+    growlithe: 'جروولايث',
+    arcanine: 'أركانين',
+    machop: 'ماتشوب',
+    geodude: 'جيودود',
+    ponyta: 'بونيتا',
+    slowpoke: 'سلوپوك',
+    magnemite: 'ماجنايميت',
+    gastly: 'جاستلي',
+    gengar: 'جينجار',
+    onix: 'أونيكس',
+    rhyhorn: 'رايهورن',
+    chansey: 'شانسي',
+    scyther: 'سايثر',
+    magikarp: 'ماجيكارب',
+    gyarados: 'جيارادوس',
+    lapras: 'لابراس',
+    ditto: 'ديتو',
+    eevee: 'إيفي',
+    vaporeon: 'فابوريون',
+    jolteon: 'جولتيون',
+    flareon: 'فلاريون',
+    snorlax: 'سنورلاكس',
+    dratini: 'دراتيني',
+    dragonite: 'دراجونايت',
+    mewtwo: 'ميوتو',
+    mew: 'ميو',
+    chikorita: 'تشيكوريتا',
+    cyndaquil: 'سينداكويل',
+    totodile: 'توتودايل',
+    togepi: 'توجيبي',
+    espeon: 'إسبون',
+    umbreon: 'أمبريون',
+    lugia: 'لوجيا',
+    celebi: 'سيليبي',
+    treecko: 'تريكو',
+    torchic: 'تورتشيك',
+    mudkip: 'مادكيب',
+    gardevoir: 'جارديفوار',
+    absol: 'أبسول',
+    salamence: 'سالامنس',
+    metagross: 'ميتاجروس',
+    rayquaza: 'ريكوازا',
+    lucario: 'لوكاريو',
+    garchomp: 'جارتشومب',
+    riolu: 'ريولو',
+    zorua: 'زوروا',
+    zoroark: 'زوروارك',
+    greninja: 'جرينينجا',
+    sylveon: 'سلفيون',
+    rowlet: 'روليت',
+    litten: 'ليتن',
+    popplio: 'بوبليو',
+    mimikyu: 'ميميكيو',
+    sobble: 'سوبل',
+    scorbunny: 'سكورباني',
+    dragapult: 'دراجابولت',
+    sprigatito: 'سبرجاتيتو',
+    fuecoco: 'فويكوكو',
+    pawmi: 'باومي',
+    tinkaton: 'تينكاتون',
   },
   spongebob: {
-    spongebob: { ar: 'سبونج بوب' },
-    'spongebob squarepants': { ar: 'سبونج بوب' },
-    'patrick star': { ar: 'بسيط' },
-    'squidward tentacles': { ar: 'شفيق' },
-    'squidward q. tentacles': { ar: 'شفيق' },
-    'sandy cheeks': { ar: 'ساندي' },
-    'eugene h. krabs': { ar: 'مستر سلطع' },
-    'mr. krabs': { ar: 'مستر سلطع' },
-    'sheldon j. plankton': { ar: 'شمشون' },
-    'plankton (character)': { ar: 'شمشون' },
-    'karen plankton': { ar: 'كارين' },
-    'gary the snail': { ar: 'غاري' },
-    'pearl krabs': { ar: 'لؤلؤة' },
-    'mrs. puff': { ar: 'مدام نفيخة' },
-    'mermaid man': { ar: 'الرجل الحوري' },
-    'barnacle boy': { ar: 'الصبي البرنقيل' },
-    'flying dutchman': { ar: 'الهولندي الطائر' },
-    'king neptune': { ar: 'الملك نبتون' },
+    spongebob: 'سبونج بوب',
+    'spongebob squarepants': 'سبونج بوب',
+    'patrick star': 'بسيط',
+    'squidward tentacles': 'شفيق',
+    'squidward q. tentacles': 'شفيق',
+    'sandy cheeks': 'ساندي',
+    'eugene h. krabs': 'مستر سلطع',
+    'mr. krabs': 'مستر سلطع',
+    'sheldon j. plankton': 'شمشون',
+    'plankton (character)': 'شمشون',
+    'karen plankton': 'كارين',
+    'gary the snail': 'غاري',
+    'pearl krabs': 'لؤلؤة',
+    'mrs. puff': 'مدام نفيخة',
+    'mermaid man': 'الرجل الحوري',
+    'barnacle boy': 'الصبي البرنقيل',
+    'flying dutchman': 'الهولندي الطائر',
+    'king neptune': 'الملك نبتون',
   },
   pony: {
-    'twilight sparkle': { ar: 'توايلايت سباركل' },
-    'rainbow dash': { ar: 'رينبو داش' },
-    'pinkie pie': { ar: 'بينكي باي' },
-    rarity: { ar: 'راريتي' },
-    fluttershy: { ar: 'فلاترشاي' },
-    applejack: { ar: 'أبلجاك' },
-    'princess celestia': { ar: 'الأميرة سيليستيا' },
-    'princess luna': { ar: 'الأميرة لونا' },
-    'spike the dragon': { ar: 'سبايك' },
-    spike: { ar: 'سبايك' },
-    'starlight glimmer': { ar: 'ستارلايت جليمر' },
-    'sunset shimmer': { ar: 'سانسيت شيمر' },
-    'big mclntosh': { ar: 'بيغ ماكنتوش' },
-    'big mcintosh': { ar: 'بيغ ماكنتوش' },
-    'big macintosh': { ar: 'بيغ ماكنتوش' },
-    'sweetie belle': { ar: 'سويتي بيل' },
-    'scootaloo': { ar: 'سكوتالو' },
-    'apple bloom': { ar: 'أبل بلوم' },
-    'derpy hooves': { ar: 'ديربي هوز' },
-    'maud pie': { ar: 'مود باي' },
-    'queen chrysalis': { ar: 'الملكة كريساليس' },
+    'twilight sparkle': 'توايلايت سباركل',
+    'rainbow dash': 'رينبو داش',
+    'pinkie pie': 'بينكي باي',
+    rarity: 'راريتي',
+    fluttershy: 'فلاترشاي',
+    applejack: 'أبلجاك',
+    'princess celestia': 'الأميرة سيليستيا',
+    'princess luna': 'الأميرة لونا',
+    'spike the dragon': 'سبايك',
+    spike: 'سبايك',
+    'starlight glimmer': 'ستارلايت جليمر',
+    'sunset shimmer': 'سانسيت شيمر',
+    'big mclntosh': 'بيغ ماكنتوش',
+    'big mcintosh': 'بيغ ماكنتوش',
+    'big macintosh': 'بيغ ماكنتوش',
+    'sweetie belle': 'سويتي بيل',
+    'scootaloo': 'سكوتالو',
+    'apple bloom': 'أبل بلوم',
+    'derpy hooves': 'ديربي هوز',
+    'maud pie': 'مود باي',
+    'queen chrysalis': 'الملكة كريساليس',
   },
 };
 
@@ -127,7 +128,6 @@ const english = {
   pokemon: 'Pokémon',
   spongebob: 'SpongeBob',
   ponies: 'My Little Pony',
-  languageLabel: 'Language',
   switchLanguage: 'Switch language',
   homeAria: 'Character Atlas home',
   menuOpen: 'Open navigation menu',
@@ -177,24 +177,6 @@ const english = {
   introPokemon: 'Meet familiar favorites from across the Pokédex.',
   introSpongebob: 'Explore the characters who call Bikini Bottom home.',
   introPony: 'Discover the many friends of Equestria.',
-  tagFire: 'fire',
-  tagWater: 'water',
-  tagGrass: 'grass',
-  tagElectric: 'electric',
-  tagPoison: 'poison',
-  tagFlying: 'flying',
-  tagNormal: 'normal',
-  tagFairy: 'fairy',
-  tagPsychic: 'psychic',
-  tagFighting: 'fighting',
-  tagRock: 'rock',
-  tagGround: 'ground',
-  tagBug: 'bug',
-  tagGhost: 'ghost',
-  tagIce: 'ice',
-  tagDragon: 'dragon',
-  tagDark: 'dark',
-  tagSteel: 'steel',
 };
 
 const arabic = {
@@ -203,7 +185,6 @@ const arabic = {
   pokemon: 'بوكيمون',
   spongebob: 'سبونج بوب',
   ponies: 'مهرتي الصغيرة',
-  languageLabel: 'اللغة',
   switchLanguage: 'تغيير اللغة إلى الإنجليزية',
   homeAria: 'الصفحة الرئيسية لأطلس الشخصيات',
   menuOpen: 'فتح قائمة التنقل',
@@ -253,56 +234,43 @@ const arabic = {
   introPokemon: 'تعرّف على شخصياتك المفضلة من عالم بوكيمون.',
   introSpongebob: 'اكتشف سكان قاع الهامور وشخصياته.',
   introPony: 'اكتشف أصدقاء إكوستريا.',
-  tagFire: 'ناري',
-  tagWater: 'مائي',
-  tagGrass: 'عشبي',
-  tagElectric: 'كهربائي',
-  tagPoison: 'سُمّي',
-  tagFlying: 'طائر',
-  tagNormal: 'عادي',
-  tagFairy: 'جني',
-  tagPsychic: 'نفسي',
-  tagFighting: 'قتالي',
-  tagRock: 'صخري',
-  tagGround: 'أرضي',
-  tagBug: 'حشري',
-  tagGhost: 'شبح',
-  tagIce: 'جليدي',
-  tagDragon: 'تنين',
-  tagDark: 'ظلام',
-  tagSteel: 'فولاذي',
 };
 
-const ponyTypes = {
+const arabicTags = {
+  fire: 'ناري',
+  water: 'مائي',
+  grass: 'عشبي',
+  electric: 'كهربائي',
+  poison: 'سُمّي',
+  flying: 'طائر',
+  normal: 'عادي',
+  fairy: 'جني',
+  psychic: 'نفسي',
+  fighting: 'قتالي',
+  rock: 'صخري',
+  ground: 'أرضي',
+  bug: 'حشري',
+  ghost: 'شبح',
+  ice: 'جليدي',
+  dragon: 'تنين',
+  dark: 'ظلام',
+  steel: 'فولاذي',
   alicorn: 'أليكون',
   unicorn: 'وحيد القرن',
   pegasus: 'بيغاسوس',
   'earth pony': 'مهر أرضي',
-  dragon: 'تنين',
   human: 'إنسان',
 };
 
-const franchiseNames = {
-  pokemon: 'pokemon',
-  spongebob: 'spongebob',
-  pony: 'ponies',
-};
-
-const franchiseDescriptions = {
-  pokemon: 'introPokemon',
-  spongebob: 'introSpongebob',
-  pony: 'introPony',
-};
-
 export function translate(language, key, values = {}) {
-  const phrase = (language === 'ar' ? arabic : english)[key] ?? english[key] ?? key;
+  const phrase = (language === 'ar' ? arabic[key] : english[key]) ?? english[key] ?? key;
   return phrase.replace(/\{(\w+)\}/g, (_, name) => values[name] ?? '');
 }
 
 function normalizeName(value) {
   return value
     .normalize('NFKC')
-    .toLocaleLowerCase()
+    .toLowerCase()
     .replace(/[\u064B-\u065F\u0670\u0640]/g, '')
     .replace(/[أإآ]/g, 'ا')
     .replace(/ى/g, 'ي')
@@ -312,24 +280,18 @@ function normalizeName(value) {
 
 export function getCharacterName(franchiseId, name, language) {
   if (language !== 'ar') return name;
-  const localized = characterNames[franchiseId]?.[normalizeName(name)]?.ar;
-  return localized ?? name;
+  return characterNames[franchiseId]?.[normalizeName(name)] ?? name;
 }
 
 export function resolveCharacterSearch(franchiseId, query) {
   const normalizedQuery = normalizeName(query);
-  const aliases = characterNames[franchiseId] ?? {};
+  const aliases = Object.entries(characterNames[franchiseId] ?? {});
 
-  for (const [canonicalName, names] of Object.entries(aliases)) {
-    if (
-      normalizeName(canonicalName) === normalizedQuery ||
-      normalizeName(names.ar) === normalizedQuery
-    ) {
-      return canonicalName;
-    }
-  }
-
-  return query.trim();
+  // APIs use English names, so turn an Arabic search term back into the API name.
+  return aliases.find(([name, arabicName]) => (
+    normalizeName(name) === normalizedQuery ||
+    normalizeName(arabicName) === normalizedQuery
+  ))?.[0] ?? query.trim();
 }
 
 export function matchesCharacterSearch(franchiseId, character, query, language) {
@@ -343,16 +305,5 @@ export function matchesCharacterSearch(franchiseId, character, query, language) 
 }
 
 export function getLocalizedTag(tag, language) {
-  if (language !== 'ar') return tag;
-  const key = `tag${tag.charAt(0).toUpperCase()}${tag.slice(1).toLowerCase()}`;
-  const translatedTag = translate(language, key);
-  return translatedTag !== key ? translatedTag : ponyTypes[normalizeName(tag)] ?? tag;
-}
-
-export function getFranchiseName(franchise, language) {
-  return translate(language, franchiseNames[franchise.id]);
-}
-
-export function getFranchiseDescription(franchise, language) {
-  return translate(language, franchiseDescriptions[franchise.id]);
+  return language === 'ar' ? arabicTags[normalizeName(tag)] ?? tag : tag;
 }

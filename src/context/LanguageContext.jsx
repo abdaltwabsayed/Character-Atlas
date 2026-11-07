@@ -1,13 +1,8 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { translate } from '../i18n/translations.js';
 
 const LanguageContext = createContext(null);
 const languageStorageKey = 'character-atlas-language';
-const siteUrl = 'https://abdaltwabsayed.github.io/Pokemon-Fetcher/';
-
-function getInitialLanguage() {
-  return window.localStorage.getItem(languageStorageKey) === 'ar' ? 'ar' : 'en';
-}
 
 function updateMeta(selector, content) {
   const element = document.head.querySelector(selector);
@@ -15,36 +10,41 @@ function updateMeta(selector, content) {
 }
 
 export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState(getInitialLanguage);
-  const direction = language === 'ar' ? 'rtl' : 'ltr';
-  const t = useCallback((key, values) => translate(language, key, values), [language]);
+  const [language, setLanguage] = useState(
+    () => (window.localStorage.getItem(languageStorageKey) === 'ar' ? 'ar' : 'en'),
+  );
+  const t = (key, values) => translate(language, key, values);
 
   useEffect(() => {
+    // Update document metadata because switching languages does not reload the page.
     document.documentElement.lang = language;
-    document.documentElement.dir = direction;
-    document.title = t('pageTitle');
-    updateMeta('meta[name="description"]', t('pageDescription'));
-    updateMeta('meta[name="application-name"]', t('siteName'));
-    updateMeta('meta[property="og:title"]', t('pageTitle'));
-    updateMeta('meta[property="og:site_name"]', t('siteName'));
-    updateMeta('meta[property="og:description"]', t('pageDescription'));
-    updateMeta('meta[property="og:locale"]', language === 'ar' ? 'ar_EG' : 'en_US');
-    updateMeta('meta[property="og:image:alt"]', t('pageTitle'));
-    updateMeta('meta[name="twitter:title"]', t('pageTitle'));
-    updateMeta('meta[name="twitter:description"]', t('pageDescription'));
-    updateMeta('meta[name="twitter:image:alt"]', t('pageTitle'));
-  }, [direction, language, t]);
-
-  useEffect(() => {
+    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
     window.localStorage.setItem(languageStorageKey, language);
+    document.title = translate(language, 'pageTitle');
+
+    const metadata = [
+      ['meta[name="description"]', 'pageDescription'],
+      ['meta[name="application-name"]', 'siteName'],
+      ['meta[property="og:title"]', 'pageTitle'],
+      ['meta[property="og:site_name"]', 'siteName'],
+      ['meta[property="og:description"]', 'pageDescription'],
+      ['meta[property="og:image:alt"]', 'pageTitle'],
+      ['meta[name="twitter:title"]', 'pageTitle'],
+      ['meta[name="twitter:description"]', 'pageDescription'],
+      ['meta[name="twitter:image:alt"]', 'pageTitle'],
+    ];
+
+    for (const [selector, value] of metadata) {
+      updateMeta(selector, translate(language, value));
+    }
+    updateMeta('meta[property="og:locale"]', language === 'ar' ? 'ar_EG' : 'en_US');
   }, [language]);
 
-  const value = useMemo(
-    () => ({ language, direction, setLanguage, t, siteUrl }),
-    [direction, language, t],
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
   );
-
-  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }
 
 export function useLanguage() {

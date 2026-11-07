@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/Pokemon-Fetcher/',
+  base: '/Character-Atlas/',
   esbuild: {
     jsx: 'automatic',
   },

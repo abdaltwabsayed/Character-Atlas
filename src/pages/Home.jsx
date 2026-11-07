@@ -6,13 +6,9 @@ import CardSkeleton from '../components/cards/CardSkeleton.jsx';
 import Carousel from '../components/carousel/Carousel.jsx';
 import StatusMessage from '../components/ui/StatusMessage.jsx';
 import { useLanguage } from '../context/LanguageContext.jsx';
-import {
-  getFranchiseDescription,
-  getFranchiseName,
-} from '../i18n/translations.js';
 
 function FranchiseSection({ franchise }) {
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
   const loadPreview = useCallback(
     (signal) => franchise.api.getList({ limit: 9, page: 0, signal }),
     [franchise],
@@ -25,8 +21,8 @@ function FranchiseSection({ franchise }) {
         <div className="section-heading">
           <div>
             <p className="eyebrow">{t('exploreEyebrow')}</p>
-            <h2>{getFranchiseName(franchise, language)}</h2>
-            <p className="section-description">{getFranchiseDescription(franchise, language)}</p>
+            <h2>{t(franchise.nameKey)}</h2>
+            <p className="section-description">{t(franchise.descriptionKey)}</p>
           </div>
           <Link className="button button-outline browse-link" to={franchise.route}>
             {t('browseAll')} <span aria-hidden="true">↗</span>
@@ -45,7 +41,7 @@ function FranchiseSection({ franchise }) {
         {status === 'success' && data?.items?.length > 0 && (
           <Carousel
             items={data.items}
-            label={getFranchiseName(franchise, language)}
+            label={t(franchise.nameKey)}
             franchiseId={franchise.id}
           />
         )}

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import useAutoRotate from '../../hooks/useAutoRotate.js';
 import { useLanguage } from '../../context/LanguageContext.jsx';
-import { getCharacterName, translate } from '../../i18n/translations.js';
+import { getCharacterName } from '../../i18n/translations.js';
 import CharacterCard from '../cards/CharacterCard.jsx';
 
 export default function Carousel({ items, label, franchiseId }) {
@@ -70,7 +70,7 @@ export default function Carousel({ items, label, franchiseId }) {
             key={character.id}
             type="button"
             className={dotIndex === index ? 'is-active' : ''}
-            aria-label={translate(language, 'showCharactersStarting', {
+            aria-label={t('showCharactersStarting', {
               name: getCharacterName(franchiseId, character.name, language),
             })}
             aria-current={dotIndex === index ? 'true' : undefined}

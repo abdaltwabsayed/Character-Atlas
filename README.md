@@ -12,7 +12,7 @@ npm run dev
 ```
 
 Create a production build with `npm run build`. Vite is configured for the
-GitHub Pages project path `/Pokemon-Fetcher/`; routes use `HashRouter` so direct
+GitHub Pages project path `/Character-Atlas/`; routes use `HashRouter` so direct
 page refreshes work on static hosting.
 
 ## Data sources
@@ -33,3 +33,6 @@ backgrounds are CSS gradients and do not hotlink images.
 - Responsive home-page carousels and searchable, paginated explorers.
 - Shared character cards, loading skeletons, API error states, and image fallbacks.
 - Franchise themes, mobile navigation, and reduced-motion support.
+- English and Arabic interfaces with automatic right-to-left layout and Arabic
+  character-name search aliases.
+- Custom atlas emblem, SVG favicon, Apple touch icon, and social-sharing artwork.

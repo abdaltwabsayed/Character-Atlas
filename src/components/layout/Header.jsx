@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { franchiseList } from '../../data/franchises.js';
-import { getFranchiseName } from '../../i18n/translations.js';
 import { useLanguage } from '../../context/LanguageContext.jsx';
 
 export default function Header() {
@@ -56,7 +55,7 @@ export default function Header() {
           <NavLink to="/" end onClick={closeMenu}>{t('home')}</NavLink>
           {franchiseList.map((franchise) => (
             <NavLink key={franchise.id} to={franchise.route} onClick={closeMenu}>
-              {getFranchiseName(franchise, language)}
+              {t(franchise.nameKey)}
             </NavLink>
           ))}
         </nav>

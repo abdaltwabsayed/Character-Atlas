@@ -5,27 +5,27 @@ import * as ponyApi from '../api/ponyApi.js';
 export const franchises = {
   pokemon: {
     id: 'pokemon',
-    name: 'Pokémon',
+    nameKey: 'pokemon',
+    descriptionKey: 'introPokemon',
     route: '/pokemon',
     theme: 'pokemon',
     api: pokemonApi,
-    description: 'Meet familiar favorites from across the Pokédex.',
   },
   spongebob: {
     id: 'spongebob',
-    name: 'SpongeBob SquarePants',
+    nameKey: 'spongebob',
+    descriptionKey: 'introSpongebob',
     route: '/spongebob',
     theme: 'spongebob',
     api: spongebobApi,
-    description: 'Explore the characters who call Bikini Bottom home.',
   },
   pony: {
     id: 'pony',
-    name: 'My Little Pony',
+    nameKey: 'ponies',
+    descriptionKey: 'introPony',
     route: '/ponies',
     theme: 'pony',
     api: ponyApi,
-    description: 'Discover the many friends of Equestria.',
   },
 };
 
