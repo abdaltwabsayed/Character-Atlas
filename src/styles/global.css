@@ -186,7 +186,7 @@ a {
 }
 
 .hero-strip {
-  --hero-glow-x: 17%;
+  --hero-glow-x: 83%;
   position: relative;
   display: flex;
   min-height: 475px;
@@ -199,7 +199,7 @@ a {
 }
 
 [dir="rtl"] .hero-strip {
-  --hero-glow-x: 83%;
+  --hero-glow-x: 17%;
 }
 
 .hero-content {
