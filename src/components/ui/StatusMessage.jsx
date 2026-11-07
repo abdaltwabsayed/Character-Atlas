@@ -1,4 +1,5 @@
 import { useLanguage } from '../../context/LanguageContext.jsx';
+import { getErrorMessage } from '../../hooks/useFetch.js';
 
 export default function StatusMessage({ status, error, onRetry, emptyMessage }) {
   const { t } = useLanguage();
